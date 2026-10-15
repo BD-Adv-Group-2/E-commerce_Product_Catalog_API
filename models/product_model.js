@@ -20,9 +20,10 @@ const productSchema = mongoose.Schema({
     inStock: {
         type: Boolean,
         default: true
-    }
-}, {timestamps: true});
+    },
 
-productSchema.index({name: 'text'});
+}, { timestamps: true });
+
+productSchema.index({ name: 'text' });
 
 module.exports = mongoose.model("productModel", productSchema);
