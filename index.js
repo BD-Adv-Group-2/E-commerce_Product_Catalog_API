@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const logger = require("./middlewares/logger");
 const errorHandler = require("./middlewares/error_handler");
+const productRoutes = require("./routes/product_routes");
 const connectDB = require("./database/db");
 
 const app = express();
@@ -12,6 +13,8 @@ connectDB();
 app.use(express.json());
 
 app.use(logger);
+
+app.use('/api', productRoutes);
 
 app.use(errorHandler);
 
